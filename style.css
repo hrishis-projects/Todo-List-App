@@ -1,0 +1,187 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f4f8; /* Light background */
+    color: #333; /* Dark text */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px; 
+    background-color: #fff; /* White background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+/* Input and Buttons */
+.input-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input {
+    width: calc(70% - 24px);
+    padding: 15px; 
+    border: 2px solid #ced4da;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: border 0.3s;
+}
+
+input::placeholder {
+    color: #adb5bd;
+}
+
+input:focus {
+    border-color: #007bff;
+}
+
+button {
+    padding: 15px 20px; 
+    margin: 10px 0;
+    background-color: #007bff; /* Primary color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button#clearTasksButton {
+    background-color: #dc3545; /* Danger color */
+}
+
+button#clearTasksButton:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Filters */
+.filters {
+    display: flex; 
+    justify-content: center; 
+    margin: 10px 0;
+    gap: 10px; 
+}
+
+.filters .filter {
+    padding: 10px 15px;
+    background-color: #007bff; 
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filters .filter:hover,
+.filters .filter.active {
+    background-color: #0056b3; 
+}
+
+.filters .filter[data-filter="active"]:hover {
+    background-color: #dc3545; /* Red for active filter */
+}
+
+.filters .filter[data-filter="completed"]:hover {
+    background-color: #28a745; /* Green for completed filter */
+}
+
+/* Task List Styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 400px; 
+    overflow-y: auto; 
+    margin: 20px 0; 
+}
+
+li {
+    padding: 15px; 
+    margin: 10px 0; 
+    background-color: #f1f3f5; 
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+li.completed {
+    text-decoration: line-through;
+    background-color: #d4edda; 
+}
+
+li:hover {
+    background-color: #e2e6ea; 
+}
+
+/* Delete Button */
+button.delete-btn {
+    background-color: #dc3545; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745; 
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+li.fade-in {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+li.fade-out {
+    animation: fadeOut 0.3s ease forwards;
+}
